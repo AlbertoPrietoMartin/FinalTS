@@ -1,0 +1,1 @@
+console.log("Mi programa para el examen final de typescript :)");

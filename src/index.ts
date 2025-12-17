@@ -1,8 +1,8 @@
 console.log("Mi programa para el examen final de typescript :)");
-/*import { ApolloServer } from "apollo-server";
+import { ApolloServer } from "apollo-server";
 import {connectToMongo} from "./db/mongo";
 import { typeDefs } from "./graphql/schema";
-import { getUserFromToken } from "./auth";
+//import { getUserFromToken } from "./auth";
 import { resolvers } from "./graphql/resolvers";
 
 const start = async() =>{
@@ -13,8 +13,8 @@ const start = async() =>{
         resolvers,
         context: async({req}) => {
             const token = req.headers.authorization || "";
-            const user = token ?await getUserFromToken(token):null;
-            return {user}
+            //const user = token ?await getUserFromToken(token):null;
+            //return {user}
         }
     });
 
@@ -23,4 +23,4 @@ const start = async() =>{
 
 };
 
-start().catch(err=>console.log("Error of top run: ", err));*/
+start().catch(err=>console.log("Error of top run: ", err));

@@ -1,3 +1,5 @@
 export const dbName = "Mondongo";
 
-//aqui tambien las colecciones con sus nicks
+export const MIS_POKEMITOS = "misPokemitos";
+export const USER_COLLECTION = "userCollection";
+export const OWNED_POKEMONS = "ownedPokemons";

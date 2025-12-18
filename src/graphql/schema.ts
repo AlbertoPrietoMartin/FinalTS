@@ -1,15 +1,70 @@
 import { gql } from "apollo-server";
 
 export const typeDefs = gql`
-  type User {
-    id: ID!
+
+  enum PokemonType {
+    NORMAL
+    FIRE
+    WATER
+    ELECTRIC
+    GRASS
+    ICE
+    FIGHTING
+    POISON
+    GROUND
+    FLYING
+    PSYCHIC
+    BUG
+    ROCK
+    GHOST
+    DRAGON
   }
 
-  type Query {
-    _empty: String
+  type Pokemon {
+    _id: ID!
+    name: String!
+    description: String!
+    height: Float!
+    weight: Float!
+    types: [PokemonType!]!
+  }
+  type OwnedPokemon {
+    _id: ID!
+    pokemon: Pokemon!
+    nickname: String
+    attack: Int!
+    defense: Int!
+    speed: Int!
+    special: Int!
+    level: Int!
+  }
+
+  type Trainer {
+    _id: ID!
+    name: String!
+    pokemons: [OwnedPokemon]!
   }
 
   type Mutation {
-    _empty: String
+    startJourney(name: String!, email: String!, password: String!): String!
+    login(name: String!, password: String!): String!
+    
+    createPokemon(
+      name: String!,
+      description: String!,
+      height: Float!,
+      weight: Float!,
+      types: [PokemonType!]!
+    ): Pokemon!
+
+    catchPokemon(pokemonId: ID!, nickname: String):
+    OwnedPokemon!
+    freePokemon(ownedPokemonId: ID!): Trainer!
+  }
+
+  type Query {
+    me: Trainer
+    pokemons(page: Int, size: Int): [Pokemon]!
+    pokemon(id: ID!): Pokemon
   }
 `;

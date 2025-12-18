@@ -29,8 +29,16 @@ export const resolvers: IResolvers = {
         },
     },
 
-    Trainer:{
-        
+    Trainer: {
+        pokemons: async (parent) => {
+            return parent.pokemons;
+        }
+    },
+
+    OwnedPokemon: {
+        pokemon: async (parent) => {
+            return parent.pokemon;
+        }
     },
 
     Mutation: {
@@ -67,4 +75,4 @@ export const resolvers: IResolvers = {
         
     }
 
-}
+};
